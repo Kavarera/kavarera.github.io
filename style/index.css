@@ -16,6 +16,7 @@ body{
     width: 300px;
     height: 300px;
     border-radius: 100%;
+    animation: mymove 10s infinite;
 }
 .list-sosmed{
     border-radius: 5% !important;
@@ -23,7 +24,6 @@ body{
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 15px;
-    
 }
 .card{
     color: white;
@@ -71,3 +71,7 @@ body{
     background-color: black;
     color: white;
 }
+
+@keyframes mymove {
+    100% {transform: rotate(360deg);}
+  }
