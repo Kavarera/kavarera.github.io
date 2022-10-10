@@ -48,12 +48,20 @@ html {
   .sosmed{
       border-radius: 0% !important;
   }
+  .download-btn{
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-right: 20px;
+  }
   .developer-sosmed{
       text-decoration: none;
       color: white;
   }
   .card .list-group-item{
       background-color: #5B7ACA;
+  }
+  .link-project-video{
+    color: white;
   }
   
   .sosmed-item{
