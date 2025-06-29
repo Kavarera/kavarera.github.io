@@ -2,14 +2,15 @@
   "projects": [
     {
       "id": 1,
-      "title": "NATURAL POS APP",
-      "description": "It's a POS Application for Desktop (Windows) for \"water refill\" business in Indonesia. This app have basic feature like account privillege, managing product, printing, etc. Database by Microsoft SQL Server.",
-      "image": "img/project1.png",
-      "technologies": ["C#", "WPF", "SQL Server", "Desktop"],
+      "title": "Notes App",
+      "description": "Notes App is a Flutter-based note-taking application I developed for my thesis research. I created two identical versions using different state management approaches, GetX and BLoC, to compare their performance. The app supports CRUD features, categories, search functionality, and local storage with SQLite, all built with a Clean Architecture approach to ensure code quality and maintainability.",
+      "image": "img/aplikasi-note.jpg",
+      "technologies": ["Flutter", "GetX", "BLoC", "SQLite", "Clean Architecture"],
       "links": {
-        "demo": "https://youtu.be/bEgd-bhF-2A",
-        "download1": "https://carapedi.id/tBykCRQB",
-        "download2": "https://carapedi.id/d6nxqAi"
+        "github": [
+            "https://github.com/Kavarera/NoteApp-CleanArch-GETX",
+            "https://github.com/Kavarera/NotesApp_Bloc"
+        ]
       },
       "developers": [
         {
@@ -19,39 +20,51 @@
       ],
       "featured": true
     },
+
     {
       "id": 2,
-      "title": "Web Portfolio",
-      "description": "Modern black futuristic portfolio website built with Bootstrap 5, featuring dynamic project loading from JSON data and smooth animations.",
-      "image": "img/profile-png.png",
-      "technologies": ["HTML5", "CSS3", "JavaScript", "Bootstrap", "JSON"],
+      "title": "PademPedia",
+      "description": "Padempedia.com is a web platform I developed during my community service (KKN) program to provide comprehensive information about the village, including profiles, local news, community blogs, and a marketplace for local products. The website also features infographics to help residents and visitors easily understand important information about the village and its economy.",
+      "image": "img/padempedia.png",
+      "technologies": ["Flutter", "Getx", "SQLite","Firebase"],
       "links": {
-        "github": "https://github.com/Kavarera/kavarera.github.io",
-        "demo": "#"
+        "demo": "https://www.padempedia.com/"
       },
       "developers": [
         {
           "name": "Kavarera",
           "link": "https://www.instagram.com/r_kavarera"
-        }
+        },
+        {
+          "name": "Denisha",
+          "link": "https://www.instagram.com/denishazzahra/"
+        }        
       ],
       "featured": true
     },
+
     {
       "id": 3,
-      "title": "Data Analysis Project",
-      "description": "Comprehensive data analysis project using Python for processing and visualizing complex datasets with machine learning integration.",
+      "title": "Image Processing App",
+      "description": "Image Processing App is a Flutter-based desktop application I developed to apply various image editing effects, such as crop, resize, rotate, grayscale, brightness, sepia, negative, vignette, and gamma adjustments. The app features an intuitive interface for easy image manipulation, built to deepen my understanding of digital image processing and cross-platform desktop development.",
       "image": "img/profile-png.png",
-      "technologies": ["Python", "Pandas", "NumPy", "Matplotlib", "Scikit-learn"],
+      "technologies": ["Flutter", "Getx", "SQLite"],
       "links": {
-        "github": "#",
-        "demo": "#"
+        "github": [
+            "https://github.com/Kavarera/NoteApp-CleanArch-GETX",
+            "https://github.com/Kavarera/NotesApp_Bloc"
+        ]
       },
       "developers": [
         {
           "name": "Kavarera",
           "link": "https://www.instagram.com/r_kavarera"
+        },
+        {
+          "name": "Fitra",
+          "link": "https://www.instagram.com/fitraartora/"
         }
+        
       ],
       "featured": true
     }

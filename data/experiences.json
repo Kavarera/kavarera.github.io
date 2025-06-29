@@ -1,0 +1,64 @@
+{
+  "experiences": [
+    {
+      "id": 1,
+      "position": "Full Stack Developer",
+      "company": "Freelance",
+      "location": "Remote",
+      "startDate": "2023-01",
+      "endDate": "Present",
+      "description": "Developing web applications and mobile apps for various clients using modern technologies like Flutter, React, and Node.js. Focus on creating responsive designs and efficient backend systems.",
+      "achievements": [
+        "Built 5+ mobile applications using Flutter",
+        "Developed responsive web platforms",
+        "Implemented clean architecture patterns"
+      ],
+      "technologies": ["Flutter", "React", "Node.js", "Firebase", "MySQL"]
+    },
+    {
+      "id": 2,
+      "position": "Web Developer",
+      "company": "KKN Community Service",
+      "location": "Padem Village, Yogyakarta",
+      "startDate": "2024-07",
+      "endDate": "2024-08",
+      "description": "Led the development of Padempedia.com, a comprehensive village information platform during community service program. Created a digital solution to showcase village profiles, news, and local marketplace.",
+      "achievements": [
+        "Successfully launched village information website",
+        "Implemented marketplace for local products",
+        "Created user-friendly interface for villagers"
+      ],
+      "technologies": ["Flutter Web", "Firebase", "GetX", "Responsive Design"]
+    },
+    {
+      "id": 3,
+      "position": "Research Assistant",
+      "company": "UPN Veteran Yogyakarta",
+      "location": "Yogyakarta, Indonesia",
+      "startDate": "2024-01",
+      "endDate": "2024-06",
+      "description": "Conducted thesis research comparing state management approaches in Flutter applications. Developed identical note-taking applications using GetX and BLoC patterns to analyze performance differences.",
+      "achievements": [
+        "Implemented Clean Architecture pattern",
+        "Compared GetX vs BLoC performance",
+        "Published research findings"
+      ],
+      "technologies": ["Flutter", "GetX", "BLoC", "SQLite", "Clean Architecture"]
+    },
+    {
+      "id": 4,
+      "position": "Desktop Application Developer",
+      "company": "Personal Project",
+      "location": "Tangerang, Indonesia",
+      "startDate": "2023-06",
+      "endDate": "2023-12",
+      "description": "Developed NATURAL POS APP, a point-of-sale desktop application for water refill businesses. Built with C# and WPF, featuring account management, product tracking, and reporting systems.",
+      "achievements": [
+        "Created complete POS system",
+        "Implemented user privilege management",
+        "Integrated SQL Server database"
+      ],
+      "technologies": ["C#", "WPF", "SQL Server", "Windows Forms"]
+    }
+  ]
+}

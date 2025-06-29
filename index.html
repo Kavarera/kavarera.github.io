@@ -47,6 +47,9 @@
               <a class="nav-link itemNavbar" href="#about">About</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link itemNavbar" href="#experiences">Experience</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link itemNavbar" href="#projects">Projects</a>
             </li>
             <li class="nav-item">
@@ -60,8 +63,15 @@
     <!-- Hero Section -->
     <section id="home" class="masthead text-white text-center">
       <div class="container d-flex align-items-center flex-column">
-        <!-- Profile Image -->
-        <img class="imgProfile mb-4" src="img/jogja-min.jpg" alt="Rafli Iskandar Kavarera">
+        <!-- Profile Image with Glitch Effects -->
+        <div class="profile-container mb-4">
+          <div class="glitch-wrapper">
+            <img class="imgProfile" src="img/jogja-min.jpg" alt="Rafli Iskandar Kavarera">
+            <div class="glitch-overlay glitch-overlay-1"></div>
+            <div class="glitch-overlay glitch-overlay-2"></div>
+            <div class="glitch-overlay glitch-overlay-3"></div>
+          </div>
+        </div>
         
         <!-- Main Heading -->
         <h1 class="masthead-heading text-uppercase mb-3">
@@ -69,7 +79,7 @@
         </h1>
         
         <!-- Subtitle -->
-        <h4 class="mb-4">Computer Science Student & Developer</h4>
+        <h4 class="mb-4">Full Stack Developer & Mobile Engineer</h4>
         
         <!-- Social Media Links -->
         <div class="sosmed">
@@ -84,13 +94,6 @@
             <div class="list-sosmed">
               <i class="fab fa-instagram sosmed-logo"></i>
               Instagram
-            </div>
-          </a>
-          
-          <a href="mailto:kavarera.work.business@gmail.com?subject=Work Offer - Portfolio&body=Hello Kavarera," class="sosmed-item">
-            <div class="list-sosmed">
-              <i class="fas fa-envelope sosmed-logo"></i>
-              Work
             </div>
           </a>
           
@@ -112,35 +115,60 @@
             <h2 class="text-center mb-4" style="font-family: 'Orbitron', monospace; font-size: 2.5rem;">About Me</h2>
             <div class="aboutme">
               <p>
-                Hello! I'm a dedicated Computer Science student at Universitas Pembangunan Nasional Veteran Yogyakarta, 
-                passionate about software development and emerging technologies. Originally from Tangerang, I spend my time 
-                exploring new programming languages, building innovative projects, and staying up-to-date with the latest 
-                tech trends.
+                Hello! I'm a passionate Mobile Developer specializing in Flutter and Kotlin, with strong expertise in backend development, web technologies using C# .NET, desktop applications, IoT, and cloud computing. I love exploring new technologies and continuously expanding my knowledge.
               </p>
               <p>
-                My expertise spans across desktop application development, web technologies, and database management. 
-                I enjoy creating solutions that bridge the gap between complex technical challenges and user-friendly interfaces.
+                Throughout my professional journey, I have led projects and collaborated with teams to deliver high-quality solutions. I am deeply focused on writing efficient, optimized, and maintainable code, always aiming to improve code quality and adopt the best technologies for each project.
               </p>
+              <p>
+                Outside of work, I enjoy spending time with friends and learning about the latest trends in software development. My goal is to create impactful and user-friendly applications that solve real-world problems.
+              </p>
+
               <div class="row mt-4">
                 <div class="col-md-6">
                   <h5 style="color: #00ffff;">Technical Skills</h5>
                   <ul style="color: #cccccc;">
-                    <li>Desktop Application Development (C#, WPF)</li>
-                    <li>Web Development (HTML, CSS, JavaScript)</li>
-                    <li>Database Management (SQL Server)</li>
-                    <li>Version Control (Git)</li>
+                    <li>Android Developer Flutter & Kotlin</li>
+                    <li>Desktop Developer (C# .NET, Java,Flutter)</li>
+                    <li>Database Management (SQL, Firebase, Supabase)</li>
+                    <li>IoT & Cloud Computing</li>
                   </ul>
                 </div>
                 <div class="col-md-6">
                   <h5 style="color: #00ffff;">Interests</h5>
                   <ul style="color: #cccccc;">
-                    <li>Software Architecture</li>
-                    <li>User Experience Design</li>
-                    <li>Open Source Contribution</li>
-                    <li>Technology Innovation</li>
+                     <li>Cross-Platform Mobile Development</li>
+                     <li>Clean Code & Code Optimization</li>
+                     <li>Software Architecture & Design Patterns</li>
+                     <li>Cloud Computing & DevOps</li>
+                     <li>Internet of Things (IoT)</li>
+                     <li>Continuous Learning & Emerging Technologies</li>
+                     <li>Technical Leadership & Team Collaboration</li>
                   </ul>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiences Section -->
+    <section id="experiences" class="experiences-section py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <h2 class="text-center mb-5" style="font-family: 'Orbitron', monospace; font-size: 2.5rem;">Professional Experience</h2>
+            
+            <!-- Loading indicator for experiences -->
+            <div id="experiences-loading" class="text-center mb-4">
+              <div class="loading"></div>
+              <p class="mt-2">Loading experiences...</p>
+            </div>
+            
+            <!-- Timeline Container -->
+            <div class="timeline-container" id="experiences-container">
+              <!-- Experiences will be loaded here dynamically -->
             </div>
           </div>
         </div>
@@ -184,7 +212,7 @@
                 I'm always interested in new opportunities and collaborations. Whether you have a project in mind, 
                 want to discuss technology, or just want to connect, feel free to reach out!
               </p>
-              <div class="row">
+              <div class="row justify-content-center">
                 <div class="col-md-4 mb-3">
                   <a href="mailto:kavarera.work.business@gmail.com" class="btn btn-futuristic w-100">
                     <i class="fas fa-envelope me-2"></i>Email Me
@@ -195,9 +223,15 @@
                     <i class="fab fa-github me-2"></i>GitHub
                   </a>
                 </div>
+              <div class="row justify-content-center">
                 <div class="col-md-4 mb-3">
                   <a href="https://www.instagram.com/r_kavarera" class="btn btn-futuristic w-100" target="_blank">
                     <i class="fab fa-instagram me-2"></i>Instagram
+                  </a>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <a href="https://www.linkedin.com/in/kavarera" class="btn btn-futuristic w-100" target="_blank">
+                    <i class="fab fa-instagram me-2"></i>LinkedIn
                   </a>
                 </div>
               </div>

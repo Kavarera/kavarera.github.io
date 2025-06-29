@@ -2,12 +2,15 @@
 class PortfolioManager {
     constructor() {
         this.projects = [];
+        this.experiences = [];
         this.init();
     }
 
     async init() {
         await this.loadProjects();
+        await this.loadExperiences();
         this.renderProjects();
+        this.renderExperiences();
         this.initializeAnimations();
     }
 
@@ -22,23 +25,75 @@ class PortfolioManager {
         }
     }
 
+    async loadExperiences() {
+        try {
+            const response = await fetch('data/experiences.json');
+            const data = await response.json();
+            this.experiences = data.experiences;
+        } catch (error) {
+            console.error('Error loading experiences:', error);
+            this.experiences = this.getFallbackExperiences();
+        }
+    }
+
     getFallbackProjects() {
         return [
-            {
-                id: 1,
-                title: "NATURAL POS APP",
-                description: "It's a POS Application for Desktop (Windows) for \"water refill\" business in Indonesia. This app have basic feature like account privillege, managing product, printing, etc. Database by Microsoft SQL Server.",
-                image: "img/project1.png",
-                technologies: ["C#", "WPF", "SQL Server", "Desktop"],
-                links: {
-                    demo: "https://youtu.be/bEgd-bhF-2A",
-                    download1: "https://carapedi.id/tBykCRQB",
-                    download2: "https://carapedi.id/d6nxqAi"
-                },
-                developers: [{ name: "Kavarera", link: "https://www.instagram.com/r_kavarera" }],
-                featured: true
-            }
-        ];
+    {
+      "id": 1,
+      "title": "NATURAL POS APP",
+      "description": "It's a POS Application for Desktop (Windows) for \"water refill\" business in Indonesia. This app have basic feature like account privillege, managing product, printing, etc. Database by Microsoft SQL Server.",
+      "image": "img/project1.png",
+      "technologies": ["C#", "WPF", "SQL Server", "Desktop"],
+      "links": {
+        "demo": "https://youtu.be/bEgd-bhF-2A",
+        "download1": "https://carapedi.id/tBykCRQB",
+        "download2": "https://carapedi.id/d6nxqAi"
+      },
+      "developers": [
+        {
+          "name": "Kavarera",
+          "link": "https://www.instagram.com/r_kavarera"
+        }
+      ],
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "Web Portfolio",
+      "description": "Modern black futuristic portfolio website built with Bootstrap 5, featuring dynamic project loading from JSON data and smooth animations.",
+      "image": "img/profile-png.png",
+      "technologies": ["HTML5", "CSS3", "JavaScript", "Bootstrap", "JSON"],
+      "links": {
+        "github": "https://github.com/Kavarera/kavarera.github.io",
+        "demo": "#"
+      },
+      "developers": [
+        {
+          "name": "Kavarera",
+          "link": "https://www.instagram.com/r_kavarera"
+        }
+      ],
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "Data Analysis Project",
+      "description": "Comprehensive data analysis project using Python for processing and visualizing complex datasets with machine learning integration.",
+      "image": "img/profile-png.png",
+      "technologies": ["Python", "Pandas", "NumPy", "Matplotlib", "Scikit-learn"],
+      "links": {
+        "github": "#",
+        "demo": "#"
+      },
+      "developers": [
+        {
+          "name": "Kavarera",
+          "link": "https://www.instagram.com/r_kavarera"
+        }
+      ],
+      "featured": true
+    }
+  ];
     }
 
     renderProjects() {
@@ -75,7 +130,10 @@ class PortfolioManager {
         ).join('');
 
         const developers = project.developers.map(dev => 
-            `<a href="${dev.link}" class="developer-sosmed" target="_blank">${dev.name}</a>`
+        {
+            const roleText = dev.role ? ` (${dev.role})` : '';
+            return `<a href="${dev.link}" class="developer-sosmed" target="_blank">${dev.name}${roleText}</a>`;
+        }
         ).join(', ');
 
         const actionButtons = this.createActionButtons(project);
@@ -112,9 +170,17 @@ class PortfolioManager {
         }
         
         if (project.links.github) {
-            buttons += `<a href="${project.links.github}" class="btn btn-futuristic me-2 mb-2" target="_blank">
+            if(project.links.github.length > 1){
+                project.links.github.forEach((link, index) => {
+                    buttons += `<a href="${link}" class="btn btn-futuristic me-2 mb-2" target="_blank">
+                        <i class="fab fa-github me-1"></i>GitHub ${index+1}
+                    </a>`;
+                });
+            } else{
+                buttons += `<a href="${project.links.github}" class="btn btn-futuristic me-2 mb-2" target="_blank">
                 <i class="fab fa-github me-1"></i>GitHub
             </a>`;
+            }
         }
         
         if (project.links.download1) {
