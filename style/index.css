@@ -1,89 +1,491 @@
+/* Futuristic Black Monochrome Theme */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-black: #000000;
+  --secondary-black: #0a0a0a;
+  --dark-gray: #1a1a1a;
+  --medium-gray: #2a2a2a;
+  --light-gray: #404040;
+  --accent-white: #ffffff;
+  --neon-glow: #00ffff;
+  --soft-glow: rgba(0, 255, 255, 0.3);
+  --gradient-primary: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  --gradient-secondary: linear-gradient(45deg, #0a0a0a 0%, #2a2a2a 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Rajdhani', monospace !important;
+  background: var(--gradient-primary);
+  color: var(--accent-white);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Animated Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Futuristic Navbar */
+.navbar {
+  background: rgba(0, 0, 0, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--medium-gray);
+  transition: all 0.3s ease;
+}
+
+.navbar:hover {
+  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.2);
+}
+
+.judulNavbar {
+  font-family: 'Orbitron', monospace !important;
+  font-size: 2.5rem !important;
+  font-weight: 900;
+  color: var(--accent-white) !important;
+  text-shadow: 0 0 10px var(--neon-glow);
+  transition: all 0.3s ease;
+}
+
+.judulNavbar:hover {
+  text-shadow: 0 0 20px var(--neon-glow);
+  transform: scale(1.05);
+}
+
+.itemNavbar {
+  font-size: 1.2rem !important;
+  font-weight: 500;
+  color: var(--accent-white) !important;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.itemNavbar::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  background: var(--neon-glow);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.itemNavbar:hover::after {
+  width: 100%;
+}
+
+.itemNavbar:hover {
+  color: var(--neon-glow) !important;
+  text-shadow: 0 0 10px var(--neon-glow);
+}
+
+/* Hero Section */
+.masthead {
+  background: var(--gradient-secondary);
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  opacity: 0.1;
+}
+
+.imgProfile {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 3px solid var(--neon-glow);
+  box-shadow: 
+    0 0 30px var(--soft-glow),
+    inset 0 0 30px rgba(0, 255, 255, 0.1);
+  animation: float 6s ease-in-out infinite;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.imgProfile:hover {
+  box-shadow: 
+    0 0 50px var(--neon-glow),
+    inset 0 0 50px rgba(0, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.masthead-heading {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  animation: fadeInUp 1s ease-out;
+}
+
+.masthead h4 {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: var(--neon-glow);
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+/* Social Media Links */
+.sosmed {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.list-sosmed {
+  background: var(--gradient-secondary);
+  border: 1px solid var(--medium-gray);
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.list-sosmed::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.list-sosmed:hover::before {
+  left: 100%;
+}
+
+.list-sosmed:hover {
+  border-color: var(--neon-glow);
+  box-shadow: 0 5px 20px var(--soft-glow);
+  transform: translateY(-5px);
+}
+
+.sosmed-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+.sosmed-item {
+  color: var(--accent-white) !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.sosmed-item:hover {
+  color: var(--neon-glow) !important;
+}
+
+.sosmed-item:hover .sosmed-logo {
+  filter: brightness(0) invert(1) sepia(1) hue-rotate(180deg) saturate(5);
+}
+
+/* About Section */
+.aboutme {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: rgba(26, 26, 26, 0.8);
+  border: 1px solid var(--medium-gray);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.aboutme p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #cccccc;
+}
+
+/* Projects Section */
+.projects-section {
+  padding: 4rem 0;
+  background: var(--gradient-primary);
+}
+
+.projects-section h1 {
+  font-family: 'Orbitron', monospace;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Project Cards */
+.card {
+  background: var(--gradient-secondary);
+  border: 1px solid var(--medium-gray);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(0, 255, 255, 0.05) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  border-color: var(--neon-glow);
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+  transform: translateY(-10px);
+}
+
+.card-image-top {
+  height: 200px;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.card:hover .card-image-top {
+  filter: brightness(1.1);
+}
+
+.card-body {
+  background: transparent;
+  padding: 1.5rem;
+  color: var(--accent-white);
+}
+
+.card-title {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--accent-white);
+}
+
+.card-text {
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid var(--neon-glow);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--neon-glow);
+}
+
+/* Buttons */
+.btn-futuristic {
+  background: var(--gradient-secondary);
+  border: 1px solid var(--neon-glow);
+  color: var(--accent-white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-futuristic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-futuristic:hover::before {
+  left: 100%;
+}
+
+.btn-futuristic:hover {
+  background: rgba(0, 255, 255, 0.1);
+  box-shadow: 0 5px 20px var(--soft-glow);
+  transform: translateY(-2px);
+  color: var(--accent-white);
+}
+
+/* Developer Info */
+.developer-info {
+  background: rgba(26, 26, 26, 0.5);
+  border-top: 1px solid var(--medium-gray);
+  padding: 1rem;
+}
+
+.developer-sosmed {
+  color: var(--neon-glow) !important;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.developer-sosmed:hover {
+  text-shadow: 0 0 10px var(--neon-glow);
+}
+
+/* Footer */
+.footerC {
+  background: var(--primary-black);
+  border-top: 1px solid var(--medium-gray);
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--accent-white);
+  font-family: 'Orbitron', monospace;
+}
+
+/* Loading Animation */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(0, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--neon-glow);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  .judulNavbar{
-      font-size: 50px !important;
-      color: white;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  .aboutme{
-      margin-left: 50px;
-      margin-right: 50px;
-  }
-  .itemNavbar{
-      font-size: 25px !important;
-  }
-  body{
-      background-color: #5B7A95 !important;
-  }
-  .imgProfile{
-      width: 300px;
-      height: 300px;
-      border-radius: 100%;
-      animation: mymove 10s infinite;
-  }
-  .list-sosmed{
-      border-radius: 5% !important;
-      border-width: 0px;
-      margin-left: 20px;
-      margin-right: 20px;
-      margin-bottom: 15px;
-  }
-  .card{
-      color: white;
-      border-width: 0;
-  }
-  .card-body{
-      background-color: #5B7ACA;
-  }
-  .card-image-top{
-      height: 250px;
-      margin-left: 10px;
-      margin-right: 10px;
-  }
-  .sosmed-logo{
-      width: 30px;
-      height: 30px;
-      margin-right: 15px;
-  }
-  .sosmed{
-      border-radius: 0% !important;
-  }
-  .download-btn{
-    margin-left: 20px;
-    margin-top: 10px;
-    margin-right: 20px;
-  }
-  .developer-sosmed{
-      text-decoration: none;
-      color: white;
-  }
-  .card .list-group-item{
-      background-color: #5B7ACA;
-  }
-  .link-project-video{
-    color: white;
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .masthead-heading {
+    font-size: 2rem;
   }
   
-  .sosmed-item{
-      padding-right: 5px;
-      text-decoration: none !important;
-      font-size: 15px !important;
-      color: black !important;
-  }
-  .container{
-      color: white;
-  }
-  .footerC{
-      text-align: center;
-      width: 100%;
-      padding-top: 20px;
-      padding-right: 20px;
-      padding-bottom: 20px;
-      background-color: black;
-      color: white; 
+  .judulNavbar {
+    font-size: 1.8rem !important;
   }
   
-  @keyframes mymove {
-      100% {transform: rotate(360deg);}
-    }
+  .itemNavbar {
+    font-size: 1rem !important;
+  }
+  
+  .sosmed {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .aboutme {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+  
+  .projects-section h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--medium-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-glow);
+}
   
