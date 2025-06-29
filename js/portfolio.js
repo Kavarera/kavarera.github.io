@@ -96,6 +96,56 @@ class PortfolioManager {
   ];
     }
 
+    getFallbackExperiences() {
+        return [
+            {
+                id: 1,
+                position: "Full Stack Developer",
+                company: "Freelance",
+                location: "Remote",
+                startDate: "2023-01",
+                endDate: "Present",
+                description: "Developing web applications and mobile apps for various clients using modern technologies like Flutter, React, and Node.js. Focus on creating responsive designs and efficient backend systems.",
+                achievements: [
+                    "Built 5+ mobile applications using Flutter",
+                    "Developed responsive web platforms",
+                    "Implemented clean architecture patterns"
+                ],
+                technologies: ["Flutter", "React", "Node.js", "Firebase", "MySQL"]
+            },
+            {
+                id: 2,
+                position: "Web Developer",
+                company: "KKN Community Service",
+                location: "Padem Village, Yogyakarta",
+                startDate: "2024-07",
+                endDate: "2024-08",
+                description: "Led the development of Padempedia.com, a comprehensive village information platform during community service program.",
+                achievements: [
+                    "Successfully launched village information website",
+                    "Implemented marketplace for local products",
+                    "Created user-friendly interface for villagers"
+                ],
+                technologies: ["Flutter Web", "Firebase", "GetX", "Responsive Design"]
+            },
+            {
+                id: 3,
+                position: "Research Assistant",
+                company: "UPN Veteran Yogyakarta",
+                location: "Yogyakarta, Indonesia",
+                startDate: "2024-01",
+                endDate: "2024-06",
+                description: "Conducted thesis research comparing state management approaches in Flutter applications. Developed identical note-taking applications using GetX and BLoC patterns.",
+                achievements: [
+                    "Implemented Clean Architecture pattern",
+                    "Compared GetX vs BLoC performance",
+                    "Published research findings"
+                ],
+                technologies: ["Flutter", "GetX", "BLoC", "SQLite", "Clean Architecture"]
+            }
+        ];
+    }
+
     renderProjects() {
         const projectsContainer = document.getElementById('projects-container');
         const loadingIndicator = document.getElementById('loading');
@@ -198,6 +248,93 @@ class PortfolioManager {
         return buttons;
     }
 
+    renderExperiences() {
+        const experiencesContainer = document.getElementById('experiences-container');
+        const loadingIndicator = document.getElementById('experiences-loading');
+        
+        if (!experiencesContainer) return;
+
+        // Hide loading indicator
+        if (loadingIndicator) {
+            loadingIndicator.style.display = 'none';
+        }
+
+        experiencesContainer.innerHTML = '';
+
+        // Sort experiences by start date (most recent first)
+        const sortedExperiences = [...this.experiences].sort((a, b) => {
+            const dateA = new Date(a.startDate + '-01');
+            const dateB = new Date(b.startDate + '-01');
+            return dateB - dateA;
+        });
+
+        sortedExperiences.forEach((experience, index) => {
+            const experienceItem = this.createExperienceItem(experience, index);
+            experiencesContainer.appendChild(experienceItem);
+        });
+
+        // Animate timeline items when they come into view
+        this.animateTimelineItems();
+    }
+
+    createExperienceItem(experience, index) {
+        const timelineItem = document.createElement('div');
+        timelineItem.className = 'timeline-item';
+        timelineItem.style.animationDelay = `${index * 0.2}s`;
+
+        const achievements = experience.achievements.map(achievement => 
+            `<li class="text-white">${achievement}</li>`
+        ).join('');
+
+        const technologies = experience.technologies.map(tech => 
+            `<span class="tech-badge">${tech}</span>`
+        ).join('');
+
+        const formattedStartDate = this.formatDate(experience.startDate);
+        const formattedEndDate = experience.endDate === "Present" ? "Present" : this.formatDate(experience.endDate);
+
+        timelineItem.innerHTML = `
+            <div class="timeline-node"></div>
+            <div class="timeline-content">
+                <div class="experience-header">
+                    <h3 class="experience-position">${experience.position}</h3>
+                    <div class="experience-company text-white">${experience.company}</div>
+                    <div class="experience-location text-white">📍 ${experience.location}</div>
+                    <div class="experience-duration">📅 ${formattedStartDate} - ${formattedEndDate}</div>
+                </div>
+                
+                <div class="experience-description text-white">
+                    ${experience.description}
+                </div>
+                
+                <div class="experience-achievements">
+                    <h6>🏆 Key Achievements:</h6>
+                    <ul>
+                        ${achievements}
+                    </ul>
+                </div>
+                
+                <div class="experience-technologies-section">
+                    <h6>💻 Technologies:</h6>
+                    <div class="experience-technologies">
+                        ${technologies}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        return timelineItem;
+    }
+
+    formatDate(dateString) {
+        const [year, month] = dateString.split('-');
+        const monthNames = [
+            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+        ];
+        return `${monthNames[parseInt(month) - 1]} ${year}`;
+    }
+
     animateCards() {
         const cards = document.querySelectorAll('.project-card');
         
@@ -220,6 +357,31 @@ class PortfolioManager {
             card.style.transform = 'translateY(50px)';
             card.style.transition = 'all 0.6s ease';
             observer.observe(card);
+        });
+    }
+
+    animateTimelineItems() {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        timelineItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(50px)';
+            item.style.transition = 'all 0.8s ease';
+            observer.observe(item);
         });
     }
 

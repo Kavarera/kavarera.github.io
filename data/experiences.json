@@ -2,63 +2,71 @@
   "experiences": [
     {
       "id": 1,
-      "position": "Full Stack Developer",
-      "company": "Freelance",
-      "location": "Remote",
-      "startDate": "2023-01",
+      "position": "Frontend Developer",
+      "company": "Telkom Akses",
+      "location": "Yogyakarta, Indonesia",
+      "startDate": "2025-04",
       "endDate": "Present",
-      "description": "Developing web applications and mobile apps for various clients using modern technologies like Flutter, React, and Node.js. Focus on creating responsive designs and efficient backend systems.",
+      "description": "Handling frontend development for web applications and mobile apps, utilizing modern technologies like Flutter, CI, and Node.js. Focused on creating responsive designs and efficient backend systems.",
       "achievements": [
-        "Built 5+ mobile applications using Flutter",
-        "Developed responsive web platforms",
-        "Implemented clean architecture patterns"
+        "Improve performance of existing applications",
+        "Maintaining and updating web & mobile platforms",
+        "Fixed bugs and implemented new features"
       ],
-      "technologies": ["Flutter", "React", "Node.js", "Firebase", "MySQL"]
+      "technologies": ["Flutter", "Code Igniter", "PHP", "DBeaver", "SQL"]
     },
     {
       "id": 2,
-      "position": "Web Developer",
-      "company": "KKN Community Service",
-      "location": "Padem Village, Yogyakarta",
-      "startDate": "2024-07",
-      "endDate": "2024-08",
-      "description": "Led the development of Padempedia.com, a comprehensive village information platform during community service program. Created a digital solution to showcase village profiles, news, and local marketplace.",
+      "position": "Fullstack Developer",
+      "company": "GeekGarden",
+      "location": "Yogyakarta, Indonesia",
+      "startDate": "2025-02",
+      "endDate": "2025-04",
+      "description": "I worked as a developer at GeekGarden Software House, where I contributed to multiple projects, collaborated with experienced teams, and strengthened my skills in mobile development with Flutter and backend development with .NET Core. My experience there helped me adopt best practices in software engineering and improve my professional growth.",
       "achievements": [
-        "Successfully launched village information website",
-        "Implemented marketplace for local products",
-        "Created user-friendly interface for villagers"
+        "Optimized app performance and code maintainability.",
+        "Introduced best practices to improve team development workflows.",
+        "Collaborated with cross-functional teams for successful product launches."
       ],
-      "technologies": ["Flutter Web", "Firebase", "GetX", "Responsive Design"]
+      "technologies": ["C#", ".NET Core", "ASP.NET", "SQL Server"]
     },
     {
       "id": 3,
-      "position": "Research Assistant",
-      "company": "UPN Veteran Yogyakarta",
-      "location": "Yogyakarta, Indonesia",
-      "startDate": "2024-01",
-      "endDate": "2024-06",
-      "description": "Conducted thesis research comparing state management approaches in Flutter applications. Developed identical note-taking applications using GetX and BLoC patterns to analyze performance differences.",
+      "position": "Programmer",
+      "company": "Freelancer",
+      "location": "Indonesia",
+      "startDate": "2022-01",
+      "endDate": "2025-01",
+      "description": "As a freelance developer on Fastwork, I have successfully delivered various projects for clients, specializing in mobile and web application development. My work includes building cross-platform apps with Flutter, developing backend services with .NET Core, and creating modern, responsive websites. Through freelancing, I have honed my skills in understanding client requirements, providing effective solutions, and managing projects independently while ensuring high-quality results and timely delivery.",
       "achievements": [
-        "Implemented Clean Architecture pattern",
-        "Compared GetX vs BLoC performance",
-        "Published research findings"
+        "Completed freelance projects with excellent client feedback.",
+        "Delivered cross-platform apps and responsive websites on time.",
+        "Built scalable backends using .NET Core for client projects.",
+        "Maintained strong client relationships leading to repeat work."
       ],
-      "technologies": ["Flutter", "GetX", "BLoC", "SQLite", "Clean Architecture"]
+      "technologies": ["Flutter", "GetX", "BLoC", "SQLite", "Clean Architecture","C#", ".NET Core", "ASP.NET", "SQL Server","Winform","WPF","FIrebase","Supabase"]
     },
     {
-      "id": 4,
-      "position": "Desktop Application Developer",
-      "company": "Personal Project",
-      "location": "Tangerang, Indonesia",
-      "startDate": "2023-06",
-      "endDate": "2023-12",
-      "description": "Developed NATURAL POS APP, a point-of-sale desktop application for water refill businesses. Built with C# and WPF, featuring account management, product tracking, and reporting systems.",
-      "achievements": [
-        "Created complete POS system",
-        "Implemented user privilege management",
-        "Integrated SQL Server database"
-      ],
-      "technologies": ["C#", "WPF", "SQL Server", "Windows Forms"]
+        "id": 4,
+        "position": "Assistant Practicum & Laboratory Administrator",
+        "company": "UPN Veteran Yogyakarta",
+        "location": "Yogyakarta, Indonesia",
+        "startDate": "2022-08",
+        "endDate": "2025-02",
+        "description": "Worked as a teaching assistant for programming and IT-related practical classes, assisting students in understanding course material and guiding them through hands-on labs. Also supported administrative tasks in the campus IT department, including maintaining lab equipment and managing class schedules.",
+        "achievements": [
+            "Successfully mentored over 100 students in practical programming courses",
+            "Helped improve lab session efficiency through better class management",
+            "Assisted lecturers in preparing teaching materials and assessments"
+        ],
+        "technologies": [
+            "Java",
+            "C++",
+            "SQL",
+            "Flutter",
+            "Mikrotik",
+            "Cisco"
+        ]
     }
   ]
 }
