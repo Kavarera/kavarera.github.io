@@ -12,136 +12,180 @@ class PortfolioManager {
         this.renderProjects();
         this.renderExperiences();
         this.initializeAnimations();
+        
+        // Force re-render after a short delay to ensure content is displayed
+        setTimeout(() => {
+            this.renderProjects();
+            this.renderExperiences();
+        }, 100);
     }
 
     async loadProjects() {
+        // Use fallback data immediately, then try to load from JSON
+        this.projects = this.getFallbackProjects();
+        
         try {
-            const response = await fetch('data/projects.json');
-            const data = await response.json();
-            this.projects = data.projects;
+            const response = await fetch('./data/projects.json');
+            if (response.ok) {
+                const data = await response.json();
+                if (data.projects && data.projects.length > 0) {
+                    this.projects = data.projects;
+                }
+            }
         } catch (error) {
-            console.error('Error loading projects:', error);
-            this.projects = this.getFallbackProjects();
+            console.log('Using fallback project data');
         }
     }
 
     async loadExperiences() {
+        // Use fallback data immediately, then try to load from JSON
+        this.experiences = this.getFallbackExperiences();
+        
         try {
-            const response = await fetch('data/experiences.json');
-            const data = await response.json();
-            this.experiences = data.experiences;
+            const response = await fetch('./data/experiences.json');
+            if (response.ok) {
+                const data = await response.json();
+                if (data.experiences && data.experiences.length > 0) {
+                    this.experiences = data.experiences;
+                }
+            }
         } catch (error) {
-            console.error('Error loading experiences:', error);
-            this.experiences = this.getFallbackExperiences();
+            console.log('Using fallback experience data');
         }
     }
 
     getFallbackProjects() {
         return [
-    {
-      "id": 1,
-      "title": "NATURAL POS APP",
-      "description": "It's a POS Application for Desktop (Windows) for \"water refill\" business in Indonesia. This app have basic feature like account privillege, managing product, printing, etc. Database by Microsoft SQL Server.",
-      "image": "img/project1.png",
-      "technologies": ["C#", "WPF", "SQL Server", "Desktop"],
-      "links": {
-        "demo": "https://youtu.be/bEgd-bhF-2A",
-        "download1": "https://carapedi.id/tBykCRQB",
-        "download2": "https://carapedi.id/d6nxqAi"
-      },
-      "developers": [
-        {
-          "name": "Kavarera",
-          "link": "https://www.instagram.com/r_kavarera"
-        }
-      ],
-      "featured": true
-    },
-    {
-      "id": 2,
-      "title": "Web Portfolio",
-      "description": "Modern black futuristic portfolio website built with Bootstrap 5, featuring dynamic project loading from JSON data and smooth animations.",
-      "image": "img/profile-png.png",
-      "technologies": ["HTML5", "CSS3", "JavaScript", "Bootstrap", "JSON"],
-      "links": {
-        "github": "https://github.com/Kavarera/kavarera.github.io",
-        "demo": "#"
-      },
-      "developers": [
-        {
-          "name": "Kavarera",
-          "link": "https://www.instagram.com/r_kavarera"
-        }
-      ],
-      "featured": true
-    },
-    {
-      "id": 3,
-      "title": "Data Analysis Project",
-      "description": "Comprehensive data analysis project using Python for processing and visualizing complex datasets with machine learning integration.",
-      "image": "img/profile-png.png",
-      "technologies": ["Python", "Pandas", "NumPy", "Matplotlib", "Scikit-learn"],
-      "links": {
-        "github": "#",
-        "demo": "#"
-      },
-      "developers": [
-        {
-          "name": "Kavarera",
-          "link": "https://www.instagram.com/r_kavarera"
-        }
-      ],
-      "featured": true
-    }
-  ];
+            {
+                "id": 1,
+                "title": "Notes App",
+                "description": "Notes App is a Flutter-based note-taking application I developed for my thesis research. I created two identical versions using different state management approaches, GetX and BLoC, to compare their performance. The app supports CRUD features, categories, search functionality, and local storage with SQLite, all built with a Clean Architecture approach to ensure code quality and maintainability.",
+                "image": "img/aplikasi-note.jpg",
+                "technologies": ["Flutter", "GetX", "BLoC", "SQLite", "Clean Architecture"],
+                "links": {
+                    "github": [
+                        "https://github.com/Kavarera/NoteApp-CleanArch-GETX",
+                        "https://github.com/Kavarera/NotesApp_Bloc"
+                    ]
+                },
+                "developers": [
+                    {
+                        "name": "Kavarera",
+                        "link": "https://www.instagram.com/r_kavarera"
+                    }
+                ],
+                "featured": true
+            },
+            {
+                "id": 2,
+                "title": "PademPedia",
+                "description": "Padempedia.com is a web platform I developed during my community service (KKN) program to provide comprehensive information about the village, including profiles, local news, community blogs, and a marketplace for local products. The website also features infographics to help residents and visitors easily understand important information about the village and its economy.",
+                "image": "img/padempedia.png",
+                "technologies": ["Flutter", "GetX", "SQLite", "Firebase"],
+                "links": {
+                    "demo": "https://www.padempedia.com/"
+                },
+                "developers": [
+                    {
+                        "name": "Kavarera",
+                        "link": "https://www.instagram.com/r_kavarera"
+                    },
+                    {
+                        "name": "Denisha",
+                        "link": "https://www.instagram.com/denishazzahra/"
+                    }
+                ],
+                "featured": true
+            },
+            {
+                "id": 3,
+                "title": "Image Processing App",
+                "description": "Image Processing App is a Flutter-based desktop application I developed to apply various image editing effects, such as crop, resize, rotate, grayscale, brightness, sepia, negative, vignette, and gamma adjustments. The app features an intuitive interface for easy image manipulation, built to deepen my understanding of digital image processing and cross-platform desktop development.",
+                "image": "img/profile-png.png",
+                "technologies": ["Flutter", "GetX", "SQLite"],
+                "links": {
+                    "github": [
+                        "https://github.com/Kavarera/NoteApp-CleanArch-GETX",
+                        "https://github.com/Kavarera/NotesApp_Bloc"
+                    ]
+                },
+                "developers": [
+                    {
+                        "name": "Kavarera",
+                        "link": "https://www.instagram.com/r_kavarera"
+                    },
+                    {
+                        "name": "Fitra",
+                        "link": "https://www.instagram.com/fitraartora/"
+                    }
+                ],
+                "featured": true
+            }
+        ];
     }
 
     getFallbackExperiences() {
         return [
             {
                 id: 1,
-                position: "Full Stack Developer",
-                company: "Freelance",
-                location: "Remote",
-                startDate: "2023-01",
+                position: "Frontend Developer",
+                company: "Telkom Akses",
+                location: "Yogyakarta, Indonesia",
+                startDate: "2025-04",
                 endDate: "Present",
-                description: "Developing web applications and mobile apps for various clients using modern technologies like Flutter, React, and Node.js. Focus on creating responsive designs and efficient backend systems.",
+                description: "Handling frontend development for web applications and mobile apps, utilizing modern technologies like Flutter, CI, and Node.js. Focused on creating responsive designs and efficient backend systems.",
                 achievements: [
-                    "Built 5+ mobile applications using Flutter",
-                    "Developed responsive web platforms",
-                    "Implemented clean architecture patterns"
+                    "Improve performance of existing applications",
+                    "Maintaining and updating web & mobile platforms",
+                    "Fixed bugs and implemented new features"
                 ],
-                technologies: ["Flutter", "React", "Node.js", "Firebase", "MySQL"]
+                technologies: ["Flutter", "Code Igniter", "PHP", "DBeaver", "SQL"]
             },
             {
                 id: 2,
-                position: "Web Developer",
-                company: "KKN Community Service",
-                location: "Padem Village, Yogyakarta",
-                startDate: "2024-07",
-                endDate: "2024-08",
-                description: "Led the development of Padempedia.com, a comprehensive village information platform during community service program.",
+                position: "Fullstack Developer",
+                company: "GeekGarden",
+                location: "Yogyakarta, Indonesia",
+                startDate: "2025-02",
+                endDate: "2025-04",
+                description: "I worked as a developer at GeekGarden Software House, where I contributed to multiple projects, collaborated with experienced teams, and strengthened my skills in mobile development with Flutter and backend development with .NET Core.",
                 achievements: [
-                    "Successfully launched village information website",
-                    "Implemented marketplace for local products",
-                    "Created user-friendly interface for villagers"
+                    "Optimized app performance and code maintainability",
+                    "Introduced best practices to improve team development workflows",
+                    "Collaborated with cross-functional teams for successful product launches"
                 ],
-                technologies: ["Flutter Web", "Firebase", "GetX", "Responsive Design"]
+                technologies: ["C#", ".NET Core", "ASP.NET", "SQL Server"]
             },
             {
                 id: 3,
-                position: "Research Assistant",
+                position: "Programmer",
+                company: "Freelancer",
+                location: "Indonesia",
+                startDate: "2022-01",
+                endDate: "2025-01",
+                description: "As a freelance developer on Fastwork, I have successfully delivered various projects for clients, specializing in mobile and web application development. My work includes building cross-platform apps with Flutter, developing backend services with .NET Core, and creating modern, responsive websites.",
+                achievements: [
+                    "Completed freelance projects with excellent client feedback",
+                    "Delivered cross-platform apps and responsive websites on time",
+                    "Built scalable backends using .NET Core for client projects",
+                    "Maintained strong client relationships leading to repeat work"
+                ],
+                technologies: ["Flutter", "GetX", "BLoC", "SQLite", "Clean Architecture", "C#", ".NET Core", "ASP.NET", "SQL Server", "Winform", "WPF", "Firebase", "Supabase"]
+            },
+            {
+                id: 4,
+                position: "Assistant Practicum & Laboratory Administrator",
                 company: "UPN Veteran Yogyakarta",
                 location: "Yogyakarta, Indonesia",
-                startDate: "2024-01",
-                endDate: "2024-06",
-                description: "Conducted thesis research comparing state management approaches in Flutter applications. Developed identical note-taking applications using GetX and BLoC patterns.",
+                startDate: "2022-08",
+                endDate: "2025-02",
+                description: "Worked as a teaching assistant for programming and IT-related practical classes, assisting students in understanding course material and guiding them through hands-on labs. Also supported administrative tasks in the campus IT department.",
                 achievements: [
-                    "Implemented Clean Architecture pattern",
-                    "Compared GetX vs BLoC performance",
-                    "Published research findings"
+                    "Successfully mentored over 100 students in practical programming courses",
+                    "Helped improve lab session efficiency through better class management",
+                    "Assisted lecturers in preparing teaching materials and assessments"
                 ],
-                technologies: ["Flutter", "GetX", "BLoC", "SQLite", "Clean Architecture"]
+                technologies: ["Java", "C++", "SQL", "Flutter", "Mikrotik", "Cisco"]
             }
         ];
     }
