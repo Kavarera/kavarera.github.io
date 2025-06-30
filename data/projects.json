@@ -51,8 +51,7 @@
       "technologies": ["Flutter", "Getx", "SQLite"],
       "links": {
         "github": [
-            "https://github.com/Kavarera/NoteApp-CleanArch-GETX",
-            "https://github.com/Kavarera/NotesApp_Bloc"
+            "https://github.com/Kavarera/image-processing-app"
         ]
       },
       "developers": [
