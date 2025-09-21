@@ -1,6 +1,25 @@
 {
   "projects": [
     {
+      "id":5,
+      "title": "Clean Arch Tool",
+      "description": "A command-line tool for automating the creation of clean architecture folder and file structures in Flutter projects. This tool helps developers start a Flutter project with a neat and well-structured architecture using just one command.",
+      "image": "img/cleanarchtool.jpg",
+      "technologies": ["Dart","Command Line Tool" ,"Clean Architecture"],
+      "links": {
+        "github": [
+            "https://github.com/Kavarera/dart-clean-arch-tool"
+        ]
+      },
+      "developers": [
+        {
+          "name": "Kavarera",
+          "link": "https://www.instagram.com/r_kavarera"
+        }
+      ],
+      "featured": true
+    },
+    {
       "id": 1,
       "title": "Notes App",
       "description": "Notes App is a Flutter-based note-taking application I developed for my thesis research. I created two identical versions using different state management approaches, GetX and BLoC, to compare their performance. The app supports CRUD features, categories, search functionality, and local storage with SQLite, all built with a Clean Architecture approach to ensure code quality and maintainability.",
